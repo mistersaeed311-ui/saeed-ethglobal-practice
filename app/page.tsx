@@ -15,6 +15,10 @@ export default function Home() {
     alert("MetaMask not found!");
   }
 }
+function disconnectWallet() {
+  setAccount("");
+  setConnected(false);
+}
   return (
     <main className="min-h-screen flex flex-col items-center justify-center">
       <h1 className="text-5xl font-bold">
@@ -34,6 +38,11 @@ export default function Home() {
 >
   {connected ? "Wallet Connected ✓" : "Connect Wallet"}
 </button>
+{account && (
+  <p className="mt-4">
+    Address: {account.slice(0, 6)}...{account.slice(-4)}
+  </p>
+)}
 {account && (
   <p className="mt-4">
     Address: {account.slice(0, 6)}...{account.slice(-4)}
